@@ -51,7 +51,7 @@ def select_country(message):
 def show_full_list(chat_id):
     text = "📦 Полный список доступных товаров:\n\n"
     for i, (name, price) in enumerate(zip(product_names, product_prices), 1):
-        text += f"{i}. {name} — {price} ֏\n"
+        text += f"{i}. {name} — {price} ₽\n"
     text += "\nТеперь пройдёмся по каждому товару 👇"
     bot.send_message(chat_id, text)
     send_next_product(chat_id, 0)
@@ -64,7 +64,7 @@ def send_next_product(chat_id, index):
     price = product_prices[index]
     progress = f"({index+1}/{len(product_names)})"
     bot.send_message(chat_id,
-        f"🛍 {progress}\n{name}\n💰 Средняя цена: {price} ֏\n\nВведите количество (0 — если не нужно):")
+        f"🛍 {progress}\n{name}\n💰 Средняя цена: {price} ₽\n\nВведите количество (0 — если не нужно):")
     bot.register_next_step_handler_by_chat_id(chat_id, lambda msg: save_quantity(msg, index))
 
 def save_quantity(message, index):
@@ -93,8 +93,8 @@ def confirm_selection(chat_id):
         if qty > 0:
             subtotal = qty * price
             total += subtotal
-            summary += f"• {name}: {qty} шт × {price} ֏ = {subtotal} ֏\n"
-    summary += f"\n💰 *Итого:* {total} ֏\n\nОтправляем данные?"
+            summary += f"• {name}: {qty} шт × {price} ₽ = {subtotal} ₽\n"
+    summary += f"\n💰 *Итого:* {total} ₽\n\nОтправляем данные?"
     
     markup = telebot.types.InlineKeyboardMarkup()
     markup.add(

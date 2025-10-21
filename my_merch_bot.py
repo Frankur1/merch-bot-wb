@@ -8,7 +8,7 @@ ADMIN_ID = 712270836  # Твой ID
 bot = telebot.TeleBot(TOKEN)
 
 # === Загружаем справочник товаров ===
-excel_path = "Мерч_позиции_средняя цена (1) (1).xlsx"
+excel_path = "merch_positions.xlsx"
 df_products = pd.read_excel(excel_path)
 
 # Функция, чтобы брать верхнюю границу, если диапазон

@@ -12,7 +12,7 @@ WORKDIR /app
 # Копируем файлы проекта
 COPY requirements.txt .
 COPY my_merch_bot.py .
-COPY "Мерч_позиции_средняя цена (1) (1).xlsx" .
+COPY merch_positions.xlsx .
 
 # Устанавливаем зависимости Python
 RUN pip install --no-cache-dir -r requirements.txt
